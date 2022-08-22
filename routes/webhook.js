@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('payments');
-});
+const webhookHandler = require('./handler/webhook');
+
+router.post('/', webhookHandler.webhook);
 
 module.exports = router;
